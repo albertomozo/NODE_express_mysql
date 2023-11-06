@@ -1,16 +1,18 @@
-
+const API_URL_BASE = 'http://' +location.hostname + ':' + location.port;
+console.log(API_URL_BASE);
+//url = API_URL_BASE +"/api/pelis";
 
 
 
 function searchPelis() {
     search = document.querySelector('#search').value;
-    url = `http://localhost:3000/api/pelis/tmdb/search?query=${search}`;
+    url = `${API_URL_BASE}/api/pelis/tmdb/search?query=${search}`;
     fetch(url)
     .then(response => response.json())
     .then(response => {
         console.log(response);
         //trespuesta= JSON.stringify(response);
-        const url = 'http://localhost:3000/api/pelis/tmdb';
+        const url = `${API_URL_BASE}/api/pelis/tmdb`;
         let trespuesta = '<table>';
         for (var i = 0; i < response.results.length; i++) { 
             

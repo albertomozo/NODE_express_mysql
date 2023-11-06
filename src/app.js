@@ -6,6 +6,9 @@ const app = express();
 // Agrega el middleware de análisis del cuerpo del mensaje para procesar solicitudes POST
 app.use(express.json()); // Para JSON
 app.use(express.urlencoded({ extended: true })); // Para formularios codificados
+// defino la carpeta static del servidor
+app.use(express.static('client'));
+
 
 app.get('/', (req, res) => {
     res.send('<h1>Benviguts</h1>');
@@ -82,6 +85,11 @@ app.post('/api/post',  (req, res) => {
 /* RUTA ERRONEA O HACEMOS TEMPLATES O ACCEDEMOS DESDE OTRO SERVIDOR MEDIANTE FETCH */
 app.get('/client/', (req, res) => {
     res.redirect('client/index.html')
+})
+/* mostramos pelicula de tmdb */
+
+app.get('/client/buscador', (req, res) => {
+    res.redirect('client/buscador.html')
 })
 /* mostramos pelicula de tmdb */
 
