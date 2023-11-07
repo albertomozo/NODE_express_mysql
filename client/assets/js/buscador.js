@@ -1,4 +1,4 @@
-const API_URL_BASE = 'https://' +location.hostname + ':' + location.port;
+let API_URL_BASE = 'https://' +location.hostname + ':' + location.port;
 console.log(API_URL_BASE);
 //url = API_URL_BASE +"/api/pelis";
 
