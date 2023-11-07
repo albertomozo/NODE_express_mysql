@@ -1,7 +1,18 @@
-const API_URL_BASE = 'https://' +location.hostname + ':' + location.port;
+ const   API_URL_BASE = 'http://' +location.hostname + ':' + location.port;
+
 console.log(API_URL_BASE);
 url = API_URL_BASE +"/api/pelis";
-fetch(url)
+const FETCH_OPTIONS_GET  = {
+    method: 'GET',
+    headers: {
+      'accept': 'application/json',
+      'Access-Control-Allow-Origin' : '*' // Configura el encabezado CORS
+    // Otras cabeceras personalizadas que puedas necesitar
+    },
+    mode: 'cors', // Establece el modo CORS
+    credentials: 'same-origin', // Configura las credenciales de la solicitud
+  };
+fetch(url,FETCH_OPTIONS_GET)
 .then(response => response.json())
 .then(response => {
     console.log(response);

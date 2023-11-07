@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json()); // Para JSON
 app.use(express.urlencoded({ extended: true })); // Para formularios codificados
 // defino la carpeta static del servidor
-app.use(express.static('client'));
+
 
 
 app.get('/', (req, res) => {
