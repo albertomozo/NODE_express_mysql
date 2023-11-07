@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json()); // Para JSON
 app.use(express.urlencoded({ extended: true })); // Para formularios codificados
 // defino la carpeta static del servidor
-
+app.use(express.static('client'));
 
 
 app.get('/', (req, res) => {
@@ -24,6 +24,26 @@ app.get('/api/pelis', async (req, res) => {
     const [rows] =  await pool.query('SELECT * from peliculas' )
     //const [rows] =  await pool.query('SELECT * from peliculas,peli_genero, genero where peliculas.id = peli_genero.peliculaid and peli_genero.generoid = genero.id' )
     console.log(rows);
+    res.json(rows);
+})
+
+app.get('/api/generos', async (req, res) => {
+    const [rows] =  await pool.query('SELECT * from genero' )
+    //console.log(rows);
+    res.json(rows);
+})
+
+app.get('/api/pelis/genero/:generoid', async (req, res) => {
+    /* comprobar que el valor enviado es integer (entero) */
+    const generoid = parseInt(req.params.generoid);
+    let rows = [];
+    if ( isNaN(generoid)){
+         rows = JSON.parse('{"error": "el genero no es valido"}')
+    } else{
+         [rows] =  await pool.query(`SELECT * FROM peliculas p, peli_genero pg
+    WHERE p.id = pg.peliculaid AND pg.generoid = ${generoid}`)
+    }
+    //console.log(rows);
     res.json(rows);
 })
 
