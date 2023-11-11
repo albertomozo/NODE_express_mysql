@@ -7,10 +7,10 @@ const FETCH_OPTIONS_GET  = {
     method: 'GET',
     headers: {
       'accept': 'application/json',
-      'Access-Control-Allow-Origin' : '*' // Configura el encabezado CORS
+      //'Access-Control-Allow-Origin' : '*' // Configura el encabezado CORS
     // Otras cabeceras personalizadas que puedas necesitar
     },
-    mode: 'cors', // Establece el modo CORS
+    //mode: 'cors', // Establece el modo CORS
     credentials: 'same-origin', // Configura las credenciales de la solicitud
   };
 fetch(url,FETCH_OPTIONS_GET)
