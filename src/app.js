@@ -1,6 +1,6 @@
 import express from 'express';
 import {pool} from './db.js';
-import {PORT, TMDB_FETCH_OPTIONS,TMDB_LANG} from './config.js';
+import {PORT, TMDB_FETCH_OPTIONS,TMDB_LANG, DB_NAME} from './config.js';
 
 const app = express();
 // Agrega el middleware de análisis del cuerpo del mensaje para procesar solicitudes POST
@@ -167,4 +167,5 @@ app.post('/api/pelis/tmdb/:tmdb_id', async (req, res) => {
 app.listen(PORT);
 
 
-console.log('listening on port '+ PORT)
+console.log('listening on port '+ PORT);
+console.log('DBNAME '+ DB_NAME);
