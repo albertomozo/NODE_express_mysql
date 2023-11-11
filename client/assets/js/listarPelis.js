@@ -1,6 +1,6 @@
 // const   API_URL_BASE = 'https://' +location.hostname + ':' + location.port;
 // https://inquisitive-longma-f2c1af.netlify.app
-const API_URL_BASE = 'https://inquisitive-longma-f2c1af.netlify.app';
+const API_URL_BASE = 'https://node-pelis.netlify.app';
 console.log(API_URL_BASE);
 url = API_URL_BASE +"/api/pelis";
 const FETCH_OPTIONS_GET  = {
