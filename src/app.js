@@ -20,12 +20,7 @@ app.get('/api', (req, res) => {
     // redireccion a la pagina de POSTMAN donde esta publicada la documentación
 })
 
-app.get('/api/pelis', async (req, res) => {
-    const [rows] =  await pool.query('SELECT * from peliculas' )
-    //const [rows] =  await pool.query('SELECT * from peliculas,peli_genero, genero where peliculas.id = peli_genero.peliculaid and peli_genero.generoid = genero.id' )
-    console.log(rows);
-    res.json(rows);
-})
+git 
 
 app.get('/api/generos', async (req, res) => {
     const [rows] =  await pool.query('SELECT * from genero' )
